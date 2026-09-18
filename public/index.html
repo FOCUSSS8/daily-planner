@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f2f7">
+  <title>每日计划</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <p class="brand">每日计划</p>
+      <nav class="views" aria-label="视图切换">
+        <button type="button" class="view-btn active" data-view="day">今日</button>
+        <button type="button" class="view-btn" data-view="history">历史</button>
+      </nav>
+      <span class="save-state" id="saveState" role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="dayView" aria-label="单日计划">
+      <div class="datebar">
+        <h2 id="dateTitle"></h2>
+        <div class="date-actions">
+          <button type="button" id="prevDay" class="nav-arrow" aria-label="前一天">‹</button>
+          <input type="date" id="datePicker" aria-label="选择日期">
+          <button type="button" id="nextDay" class="nav-arrow" aria-label="后一天">›</button>
+        </div>
+      </div>
+
+      <section class="card goals-card rise">
+        <header class="card-head">
+          <h3>今日三大重点</h3>
+          <p>为三个时段各定一件最想推进的事</p>
+        </header>
+        <div class="card-body list-divider">
+          <label class="goal-row">
+            <span class="goal-tag morning">上午</span>
+            <input data-goal="morning" placeholder="上午最想推进的一件事" autocomplete="off">
+          </label>
+          <label class="goal-row">
+            <span class="goal-tag afternoon">下午</span>
+            <input data-goal="afternoon" placeholder="下午最想推进的一件事" autocomplete="off">
+          </label>
+          <label class="goal-row">
+            <span class="goal-tag evening">晚上</span>
+            <input data-goal="evening" placeholder="晚上最想推进的一件事" autocomplete="off">
+          </label>
+        </div>
+      </section>
+
+      <section class="card todos-card rise">
+        <header class="card-head">
+          <h3>待办清单</h3>
+          <p>双击文字可以修改，点圆圈完成</p>
+        </header>
+        <div id="groupsContainer" class="todo-groups"></div>
+      </section>
+
+      <section class="card review-card rise">
+        <header class="card-head">
+          <h3>晚间复盘</h3>
+          <p>一天结束时，花一分钟回看</p>
+        </header>
+        <div class="card-body list-divider">
+          <label class="review-row">
+            <span>完成了哪些重点？</span>
+            <textarea data-review="completed" rows="2" placeholder="例如：上午的重点完成了…"></textarea>
+          </label>
+          <label class="review-row">
+            <span>哪段时间浪费了？</span>
+            <textarea data-review="wasted" rows="2" placeholder="例如：下午刷了太久手机…"></textarea>
+          </label>
+          <label class="review-row">
+            <span>明天最想改善的一点？</span>
+            <textarea data-review="improve" rows="2" placeholder="例如：起床后先做最重要的事…"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <footer class="backup rise">
+        <button type="button" id="exportBtn">导出备份</button>
+        <button type="button" id="importBtn">导入恢复</button>
+        <button type="button" id="quitBtn" class="danger">退出</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+      </footer>
+    </section>
+
+    <section id="historyView" aria-label="历史记录" hidden>
+      <div class="history-head">
+        <h2>历史记录</h2>
+        <input type="month" id="monthPicker" aria-label="选择月份">
+      </div>
+      <ul id="historyList" class="history-list"></ul>
+      <p id="historyEmpty" class="empty-hint" hidden>这个月还没有记录，先去安排今天吧。</p>
+    </section>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
