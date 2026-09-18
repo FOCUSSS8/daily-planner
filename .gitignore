@@ -1,0 +1,10 @@
+# 你的计划数据只保存在本机，不要提交
+data/
+
+# 依赖与日志
+node_modules/
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
