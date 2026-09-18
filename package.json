@@ -1,0 +1,13 @@
+{
+  "name": "daily-planner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "本地每日计划表：三时段目标 + 分类待办 + 晚间复盘",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
