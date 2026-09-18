@@ -78,3 +78,7 @@ npm start       # 等价于 node server.js
 ## 技术说明
 
 后端只使用 Node.js 内置模块，数据以单个 JSON 文件持久化（先写临时文件再重命名，避免写坏）。前端是原生 HTML/CSS/JavaScript，没有构建步骤。
+
+## 许可证
+
+本项目基于 [MIT License](LICENSE) 开源。你可以自由使用、修改、分发，甚至用于商业项目，只需保留原始版权声明。
